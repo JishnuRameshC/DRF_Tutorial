@@ -4,9 +4,9 @@ from .models import CustomUser
 class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = UserCreationForm.Meta.fields + ('name',)
+        fields = ('username', 'email', 'name')  # Explicitly list the fields you need
 
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
-        fields = UserChangeForm.Meta.fields
+        fields = ('username', 'email', 'name', 'is_active', 'is_staff')  # List additional fields as needed
